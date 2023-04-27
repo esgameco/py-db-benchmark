@@ -9,7 +9,7 @@ class Benchmark:
     async def benchmark_all(self):
         pass
 
-    async def get_benchmark(self, n_times: int=3):
+    async def get_benchmark(self, n_times: int=15):
         results = [await self.benchmark_all() for i in range(n_times)]
         return self._average_benchmarks(results)
         
