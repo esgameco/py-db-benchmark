@@ -17,7 +17,7 @@ class BenchmarkRedisPy(Benchmark):
     @do_time_async
     async def b_create_pool(self):
         self.pool = redis.from_url(self.host)
-        await self.pool.ping()
+        # await self.pool.ping()
     
     @do_time_async
     async def b_delete_pool(self):

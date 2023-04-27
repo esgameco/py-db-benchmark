@@ -17,12 +17,12 @@ class PyBenchmarker:
             if host[0] == 'aiosqlite':
                 b_aiosqlite = BenchmarkAiosqlite(host=host[1])
                 results.append((f'aiosqlite {host[1]}', await b_aiosqlite.get_benchmark()))
+            if host[0] == 'redis-py':
+                b_redis_py = BenchmarkRedisPy(host=host[1])
+                results.append((f'redis-py {host[1]}', await b_redis_py.get_benchmark()))
             if host[0] == 'python-cache':
                 b_pycache = BenchmarkPythonCache()
                 results.append((f'pycache', await b_pycache.get_benchmark()))
-            if host[0] == 'redis-py':
-                b_redis_py = BenchmarkRedisPy()
-                results.append((f'redis-py {host[1]}', await b_redis_py.get_benchmark()))
         return results
     
     def print_benchmarks(self, benchmarks: list):

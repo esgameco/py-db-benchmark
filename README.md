@@ -31,6 +31,15 @@ pip install -r requirements.txt
     b_get: 2.999544143676758 ms
     b_delete_table: 9.957075119018555 ms
     ```
+- Redis - redis-py
+    ```bash
+    Average: 9.44081942240397 ms
+    b_create_pool: 0.8494059244791666 ms
+    b_insert: 4.846731821695964 ms
+    b_update: 1.8603801727294922 ms
+    b_get: 1.8843015034993489 ms
+    b_delete_pool: 0.0 ms
+    ```
 - Python - pycache (python list caching)
     ```bash
     Average: 0.0 ms
@@ -41,4 +50,10 @@ pip install -r requirements.txt
 
 ## Notes
 
-- Postgres run on Docker Desktop
+- Postgres and Redis run on docker vms
+- Postgres uses connection pools which slow it down initially
+- Sqlite and redis not using pooling
+
+## Conclusions
+
+- Use caching unless absolutely necessary
