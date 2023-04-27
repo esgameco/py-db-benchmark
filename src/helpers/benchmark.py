@@ -3,10 +3,13 @@ class Benchmark:
         self.pool = pool
         self.host = host
 
+    async def _do_cleanup(self):
+        pass
+
     async def benchmark_all(self):
         pass
 
-    async def get_benchmark(self, n_times: int=10):
+    async def get_benchmark(self, n_times: int=3):
         results = [await self.benchmark_all() for i in range(n_times)]
         return self._average_benchmarks(results)
         

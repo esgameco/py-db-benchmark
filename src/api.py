@@ -1,4 +1,6 @@
 from .postgres import BenchmarkAsyncpg
+from .sqlite import BenchmarkAiosqlite
+from .python_cache import BenchmarkPythonCache
 from .helpers import Benchmark
 
 class PyBenchmarker:
@@ -11,6 +13,12 @@ class PyBenchmarker:
             if host[0] == 'asyncpg':
                 b_asyncpg = BenchmarkAsyncpg(host=host[1])
                 results.append((f'asyncpg {host[1]}', await b_asyncpg.get_benchmark()))
+            if host[0] == 'aiosqlite':
+                b_aiosqlite = BenchmarkAiosqlite(host=host[1])
+                results.append((f'aiosqlite {host[1]}', await b_aiosqlite.get_benchmark()))
+            if host[0] == 'python-cache':
+                b_pycache = BenchmarkPythonCache()
+                results.append((f'pycache', await b_pycache.get_benchmark()))
         return results
     
     def print_benchmarks(self, benchmarks: list):
