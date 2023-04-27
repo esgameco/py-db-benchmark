@@ -1,6 +1,7 @@
 from .postgres import BenchmarkAsyncpg
 from .sqlite import BenchmarkAiosqlite
 from .python_cache import BenchmarkPythonCache
+from .redis import BenchmarkRedisPy
 from .helpers import Benchmark
 
 class PyBenchmarker:
@@ -19,6 +20,9 @@ class PyBenchmarker:
             if host[0] == 'python-cache':
                 b_pycache = BenchmarkPythonCache()
                 results.append((f'pycache', await b_pycache.get_benchmark()))
+            if host[0] == 'redis-py':
+                b_redis_py = BenchmarkRedisPy()
+                results.append((f'redis-py {host[1]}', await b_redis_py.get_benchmark()))
         return results
     
     def print_benchmarks(self, benchmarks: list):

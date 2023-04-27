@@ -22,6 +22,22 @@ pip install -r requirements.txt
     b_asyncpg_delete_table: 5.618858337402344 ms
     b_asyncpg_delete_pool: 7.317757606506348 ms
     ```
+- SQLite - aiosqlite
+    ```bash
+    Average: 29.133160909016926 ms
+    b_create_table: 8.32819938659668 ms
+    b_insert: 4.67681884765625 ms
+    b_update: 3.171523412068685 ms
+    b_get: 2.999544143676758 ms
+    b_delete_table: 9.957075119018555 ms
+    ```
+- Python - pycache (python list caching)
+    ```bash
+    Average: 0.0 ms
+    b_insert: 0.0 ms
+    b_update: 0.0 ms
+    b_get: 0.0 ms
+    ```
 
 ## Notes
 

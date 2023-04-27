@@ -10,6 +10,7 @@ if __name__ == '__main__':
     hosts = [
         ('asyncpg', os.getenv('DB_POSTGRES')),
         ('aiosqlite', os.getenv('DB_SQLITE')),
+        ('redis-py', os.getenv('DB_REDIS')),
         ('python-cache', ''),
     ]
     b_api = PyBenchmarker(hosts=hosts)
