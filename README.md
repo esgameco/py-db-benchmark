@@ -53,6 +53,7 @@ pip install -r requirements.txt
 - Postgres and Redis run on docker vms
 - Postgres uses connection pools which slow it down initially
 - Sqlite and redis not using pooling
+- This project was mainly for testing database performance for NPAPI, so tests were made with that in mind.
 
 ## Conclusions
 
